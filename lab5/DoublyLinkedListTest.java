@@ -177,5 +177,17 @@ public class DoublyLinkedListTest {
 	}
     }
 
-    // test exceptions too
+    @Test(expected = NullPointerException.class)
+    public void testForAddNullException() {
+    	DoublyLinkedList<Integer> test = new DoublyLinkedList<Integer>();
+    	test.add(1);
+    	test.add(null);
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void testForSetNullException() {
+    	DoublyLinkedList<Integer> test = new DoublyLinkedList<Integer>();
+    	test.add(1);
+    	test.set(0, null);
+    }
 }
