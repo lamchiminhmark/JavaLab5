@@ -176,6 +176,57 @@ public class DoublyLinkedListTest {
 	    assertEquals("element:", standard.get(i), test.get(i));
 	}
     }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForGetLeftException() throws Exception {
+	DoublyLinkedList<Integer> test = new DoublyLinkedList<Integer>();
+	test.get(-1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForGetRightException() throws Exception {
+	DoublyLinkedList<String> test = new DoublyLinkedList<String>();
+	test.add("Hi");
+	test.add("You");
+	test.add("are");
+	test.add("cute.");
+	test.get(test.size());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForAddRightException() throws Exception {
+	DoublyLinkedList<String> test = new DoublyLinkedList<String>();
+	test.add("Hi");
+	test.add("You");
+	test.add("are");
+	test.add("cute.");
+	test.add(test.size() + 1, "Smile!");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForAddLeftException() throws Exception {
+	DoublyLinkedList<String> test = new DoublyLinkedList<String>();
+	test.add("Hi");
+	test.add("You");
+	test.add("are");
+	test.add("cute.");
+	test.add(-1, "Smile!");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForSetLeftException() throws Exception {
+	DoublyLinkedList<String> test = new DoublyLinkedList<String>();
+	test.set(-1, "Hi");
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testForSetRightException() throws Exception {
+	DoublyLinkedList<String> test = new DoublyLinkedList<String>();
+	test.add("Hi");
+	test.add("You");
+	test.add("are");
+	test.add("cute.");
+	test.set(test.size(), "Hi");
+    }
 
     @Test(expected = NullPointerException.class)
     public void testForAddNullException() {
